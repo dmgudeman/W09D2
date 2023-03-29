@@ -1,4 +1,6 @@
-const Game = require('./../ttt_node/game')
+const Game = require('./../ttt_node/game');
+const Board = require('./../ttt_node/board');
+const MoveError = require("../ttt_node/moveError");
 
 class View {
   constructor(game, el) {
@@ -31,9 +33,13 @@ class View {
   }
 
   handleClick(e) {
-  
     let pos = JSON.parse(e.target.dataset.pos)
-    this.game.playMove(pos)
+    try {
+      this.game.playMove(pos)
+      } catch {
+      alert ('invalid')
+    }
+    
     e.target.style.backgroundColor='white';
     e.target.innerHTML = `${this.game.currentPlayer}`
  
@@ -45,9 +51,13 @@ class View {
       e.target.style.color = 'green';
       e.target.style.backgroundColor = '#F59B42';
     }
-   
-
-  }
+    if(this.game.isOver()){
+        let banner = document.createElement('h2')
+        banner.innerHTML= 'YOU WIN !!!!!'
+        banner.style.fontSize = '50px';
+        banner.style.margin = '50px';
+        this.el.appendChild(banner)
+}  }
 
   makeMove(square) {}
 
