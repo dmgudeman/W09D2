@@ -1,3 +1,14 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 50px 0;
+    font-size: 50px;
+}
 
 ul { 
     box-sizing:border-box;

@@ -56,6 +56,7 @@ class View {
         banner.innerHTML= 'YOU WIN !!!!!'
         banner.style.fontSize = '50px';
         banner.style.margin = '50px';
+        banner.style.marginLeft = '185px';
         this.el.appendChild(banner)
 }  }
 
